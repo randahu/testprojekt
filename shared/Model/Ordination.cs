@@ -12,8 +12,7 @@ public abstract class Ordination {
         this.laegemiddel = laegemiddel;
     }
 
-    public Ordination()
-    {
+    public Ordination() {
         this.laegemiddel = null!;
     }
 
@@ -21,8 +20,7 @@ public abstract class Ordination {
     /// Antal hele dage mellem startdato og slutdato. Begge dage inklusive.
     /// </summary>
     public int antalDage() {
-        // Beregn antal dage inkl. både start- og slutdag
-        // Hvis slutdato er tidligere end startdato returneres 0.
+        // Implementeret Beregner antal dage inkl. både start- og slutdag
         var s = startDen.Date;
         var e = slutDen.Date;
         if (e < s) return 0;

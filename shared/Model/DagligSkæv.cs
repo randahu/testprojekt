@@ -3,10 +3,12 @@ namespace shared.Model;
 public class DagligSkæv : Ordination {
     public List<Dosis> doser { get; set; } = new List<Dosis>();
 
-    public DagligSkæv(DateTime startDen, DateTime slutDen, Laegemiddel laegemiddel) : base(laegemiddel, startDen, slutDen) {
+    public DagligSkæv(DateTime startDen, DateTime slutDen, Laegemiddel laegemiddel) 
+        : base(laegemiddel, startDen, slutDen) {
     }
 
-    public DagligSkæv(DateTime startDen, DateTime slutDen, Laegemiddel laegemiddel, Dosis[] doser) : base(laegemiddel, startDen, slutDen) {
+    public DagligSkæv(DateTime startDen, DateTime slutDen, Laegemiddel laegemiddel, Dosis[] doser) 
+        : base(laegemiddel, startDen, slutDen) {
         this.doser = doser.ToList();
     }    
 
@@ -22,7 +24,7 @@ public class DagligSkæv : Ordination {
     }
 
     public override double doegnDosis() {
-        // Summér antal fra alle doser for en dag
+        // Implementeret Summerer antal enheder fra alle doser på en dag
         double sum = 0;
         if (doser != null && doser.Count > 0) {
             foreach (var d in doser) {
