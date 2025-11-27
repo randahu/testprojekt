@@ -103,8 +103,7 @@ public class DataService
             db.SaveChanges();
         }
     }
-
-
+    
     public List<PN> GetPNs()
     {
         return db.PNs.Include(o => o.laegemiddel).Include(o => o.dates).ToList();
