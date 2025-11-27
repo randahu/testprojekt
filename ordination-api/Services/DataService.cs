@@ -131,7 +131,27 @@ public class DataService
     }
 
     public PN OpretPN(int patientId, int laegemiddelId, double antal, DateTime startDato, DateTime slutDato) {
-        // TODO: Implement!
+        if (startDato > slutDato)
+            throw new ArgumentException("startdato må ikke være efter slutdato");
+
+        var patien = db.Patienter
+            .Include(p => p.ordinationer)
+            .FirstOrDefault(p => p.PatientId == patientId);
+
+        if (patien == null)
+            throw new ArgumentException("Patient findes ikke");
+
+        var lm = db.Laegemiddler.FirstOrDefault(l => l.LaegemiddelId == laegemiddelId);
+        if (lm == null)
+            throw new ArgumentException("Lægemiddel ikke fundet");
+
+        PN pn = new PN(startDato, slutDato, antal, lm);
+
+        db.PNs.Add(pn);
+        patien.ordinationer.Add(pn);
+
+        db.SaveChanges();
+
         return null!;
     }
 
