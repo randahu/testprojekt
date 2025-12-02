@@ -34,6 +34,17 @@ public class DagligSkæv : Ordination {
         return sum;
     }
 
+    // public override double doegnDosis() {
+//     double sum = 0;
+//     foreach (var d in doser)
+//     {
+//         sum += d.antal;
+//     }
+//     return sum;
+// }
+
+
+    
     public override String getType() {
         return "DagligSkæv";
     }
