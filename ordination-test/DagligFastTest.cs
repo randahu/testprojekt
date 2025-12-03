@@ -6,9 +6,11 @@ public class DagligFastTest
 {
     private Laegemiddel CreateLm()
     {
+        // opretter et test-laegemiddel til brug i alle tests 
         return new Laegemiddel("TestMedicin", 0.1, 0.2, 0.3, "Stk");
     }
 
+    // Tester om doegndosis() lægger moregn+middag+aften+nat korret sammen 
     [TestMethod]
     public void DoegnDosis_CalculatesCorrectSum()
     {
@@ -28,6 +30,8 @@ public class DagligFastTest
         Assert.AreEqual(6, result);  // 2+1+3+0 = 6
     }
 
+    
+    // tester om samletDosis() ganger døgndosis med antal dage 
     [TestMethod]
     public void SamletDosis_CalculatesCorrectTotal()
     {
@@ -47,6 +51,8 @@ public class DagligFastTest
         Assert.AreEqual(12, result); // 3 dage * 4 enheder = 12
     }
 
+    
+    // Tester at doegndosis() returnerer 0, hvis aller doser er 0 
     [TestMethod]
     public void DoegnDosis_ReturnsZero_WhenAllDosesAreZero()
     {

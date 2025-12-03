@@ -32,7 +32,8 @@ public class DagligFast : Ordination {
         return sum;
     }
     
-    // public override double doegnDosis() {
+    
+// public override double doegnDosis() {
 //     // Implementeret Summerer de 4 faste doser pr. dag
 //     return MorgenDosis.antal + MiddagDosis.antal + AftenDosis.antal + NatDosis.antal;
 // }
