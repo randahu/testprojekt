@@ -28,7 +28,7 @@ public class DagligSkæv : Ordination {
         double sum = 0;
         if (doser != null && doser.Count > 0) {
             foreach (var d in doser) {
-                sum += d.antal;
+                sum += d.antal;  // lægger hver dosis antal sammen
             }
         }
         return sum;
